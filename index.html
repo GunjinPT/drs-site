@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DRS F1 Team</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Animated background */
+    body::before {
+      content:"";
+      position:fixed;
+      width:200%; height:200%;
+      background: repeating-linear-gradient(
+        120deg,
+        rgba(255,215,0,0.05) 0px,
+        rgba(255,215,0,0.05) 2px,
+        transparent 2px,
+        transparent 40px
+      );
+      animation: moveBg 20s linear infinite;
+      z-index:-1;
+    }
+
+    @keyframes moveBg {
+      from { transform: translate(0,0); }
+      to { transform: translate(-200px,-200px); }
+    }
+
+    header {
+      text-align:center;
+      padding:60px 20px;
+      animation: fadeIn 2s ease;
+    }
+
+    header img {
+      max-width:280px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    h1 {
+      color: gold;
+      margin-top:20px;
+      letter-spacing:3px;
+    }
+
+    nav {
+      display:flex;
+      justify-content:center;
+      gap:30px;
+      padding:15px;
+      border-top:1px solid #222;
+      border-bottom:1px solid #222;
+      background:#050505;
+    }
+
+    nav a {
+      color:white;
+      text-decoration:none;
+      position:relative;
+    }
+
+    nav a::after {
+      content:"";
+      position:absolute;
+      width:0%;
+      height:2px;
+      background:gold;
+      bottom:-5px;
+      left:0;
+      transition:0.3s;
+    }
+
+    nav a:hover::after { width:100%; }
+
+    section {
+      padding:60px 20px;
+      max-width:1100px;
+      margin:auto;
+      animation: fadeUp 1s ease;
+    }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform: translateY(30px); }
+      to { opacity:1; transform: translateY(0); }
+    }
+
+    h2 {
+      margin-bottom:20px;
+      color:gold;
+      border-left:4px solid red;
+      padding-left:10px;
+    }
+
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #0a0a0a, #111);
+      padding:20px;
+      border:1px solid #222;
+      transition:0.3s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before {
+      content:"";
+      position:absolute;
+      width:100%; height:2px;
+      background:linear-gradient(90deg, transparent, red, transparent);
+      top:0;
+      left:-100%;
+      transition:0.5s;
+    }
+
+    .card:hover::before {
+      left:100%;
+    }
+
+    .card:hover {
+      transform: translateY(-5px) scale(1.02);
+      border-color:gold;
+    }
+
+    footer {
+      text-align:center;
+      padding:30px;
+      border-top:1px solid #222;
+      margin-top:40px;
+      color:#aaa;
+    }
+
+    .highlight { color:red; }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="DRS Logo">
+  <h1>DRS F1 TEAM</h1>
+  <p><span class="highlight">Precision</span>. Speed. Victory.</p>
+</header>
+
+<nav>
+  <a href="#sobre">Sobre</a>
+  <a href="#pilotos">Pilotos</a>
+  <a href="#resultados">Resultados</a>
+  <a href="#contacto">Contacto</a>
+</nav>
+
+<section id="sobre">
+  <h2>Sobre a Equipa</h2>
+  <div class="card">
+    <p>Fundada em 2026, a DRS F1 Team nasce com uma missão clara: dominar as ligas online de Fórmula 1 com precisão, estratégia e velocidade.</p>
+  </div>
+</section>
+
+<section id="pilotos">
+  <h2>Pilotos</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Piloto 1</h3>
+      <p>Estilo agressivo</p>
+    </div>
+    <div class="card">
+      <h3>Piloto 2</h3>
+      <p>Consistente e estratégico</p>
+    </div>
+  </div>
+</section>
+
+<section id="resultados">
+  <h2>Resultados</h2>
+  <div class="card">
+    <p>Corrida 1 - P3</p>
+    <p>Corrida 2 - P5</p>
+  </div>
+</section>
+
+<section id="contacto">
+  <h2>Contacto</h2>
+  <div class="card">
+    <p>Instagram: @drs.team</p>
+    <p>Discord: em breve</p>
+  </div>
+</section>
+
+<footer>
+  <p>DRS F1 Team © 2026</p>
+</footer>
+
+</body>
+</html>
