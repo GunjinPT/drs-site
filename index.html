@@ -7,148 +7,52 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: 'Orbitron', sans-serif;
-      background: #000;
-      color: #fff;
-      overflow-x: hidden;
-    }
+    body { font-family:'Orbitron',sans-serif; background:#000; color:#fff; }
 
-    /* Animated background */
-    body::before {
-      content:"";
-      position:fixed;
-      width:200%; height:200%;
-      background: repeating-linear-gradient(
-        120deg,
-        rgba(255,215,0,0.05) 0px,
-        rgba(255,215,0,0.05) 2px,
-        transparent 2px,
-        transparent 40px
-      );
-      animation: moveBg 20s linear infinite;
-      z-index:-1;
-    }
-
-    @keyframes moveBg {
-      from { transform: translate(0,0); }
-      to { transform: translate(-200px,-200px); }
-    }
-
-    header {
-      text-align:center;
-      padding:60px 20px;
-      animation: fadeIn 2s ease;
-    }
-
-    header img {
-      max-width:280px;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    h1 {
-      color: gold;
-      margin-top:20px;
-      letter-spacing:3px;
-    }
+    header { text-align:center; padding:60px 20px; }
+    header img { max-width:260px; }
+    h1 { color:gold; margin-top:15px; }
 
     nav {
-      display:flex;
-      justify-content:center;
-      gap:30px;
-      padding:15px;
-      border-top:1px solid #222;
-      border-bottom:1px solid #222;
-      background:#050505;
+      display:flex; justify-content:center; gap:30px;
+      padding:15px; background:#050505;
+      border-top:1px solid #222; border-bottom:1px solid #222;
     }
 
-    nav a {
-      color:white;
-      text-decoration:none;
-      position:relative;
-    }
-
+    nav a { color:white; text-decoration:none; position:relative; }
     nav a::after {
-      content:"";
-      position:absolute;
-      width:0%;
-      height:2px;
-      background:gold;
-      bottom:-5px;
-      left:0;
-      transition:0.3s;
+      content:""; position:absolute; width:0%; height:2px;
+      background:gold; bottom:-5px; left:0; transition:0.3s;
     }
-
     nav a:hover::after { width:100%; }
 
-    section {
-      padding:60px 20px;
-      max-width:1100px;
-      margin:auto;
-      animation: fadeUp 1s ease;
-    }
-
-    @keyframes fadeUp {
-      from { opacity:0; transform: translateY(30px); }
-      to { opacity:1; transform: translateY(0); }
-    }
-
-    h2 {
-      margin-bottom:20px;
-      color:gold;
-      border-left:4px solid red;
-      padding-left:10px;
-    }
+    section { padding:60px 20px; max-width:1100px; margin:auto; }
+    h2 { color:gold; margin-bottom:20px; }
 
     .grid {
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
       gap:20px;
     }
 
     .card {
-      background: linear-gradient(145deg, #0a0a0a, #111);
-      padding:20px;
-      border:1px solid #222;
+      background:#0a0a0a; border:1px solid #222; padding:20px;
       transition:0.3s;
-      position:relative;
-      overflow:hidden;
+    }
+    .card:hover { transform:scale(1.03); border-color:gold; }
+
+    .card img {
+      width:100%; height:150px; object-fit:cover;
+      margin-bottom:10px; border-radius:8px;
     }
 
-    .card::before {
-      content:"";
-      position:absolute;
-      width:100%; height:2px;
-      background:linear-gradient(90deg, transparent, red, transparent);
-      top:0;
-      left:-100%;
-      transition:0.5s;
-    }
+    .team { color:red; font-size:14px; margin-bottom:10px; }
 
-    .card:hover::before {
-      left:100%;
-    }
+    .skill { margin:8px 0; }
+    .bar { height:6px; background:#222; border-radius:10px; overflow:hidden; }
+    .fill { height:100%; background:linear-gradient(90deg, red, gold); }
 
-    .card:hover {
-      transform: translateY(-5px) scale(1.02);
-      border-color:gold;
-    }
-
-    footer {
-      text-align:center;
-      padding:30px;
-      border-top:1px solid #222;
-      margin-top:40px;
-      color:#aaa;
-    }
-
-    .highlight { color:red; }
-
+    footer { text-align:center; padding:30px; color:#777; border-top:1px solid #222; }
   </style>
 </head>
 <body>
@@ -156,7 +60,7 @@
 <header>
   <img src="logo.png" alt="DRS Logo">
   <h1>DRS F1 TEAM</h1>
-  <p><span class="highlight">Precision</span>. Speed. Victory.</p>
+  <p>Precision. Speed. Victory.</p>
 </header>
 
 <nav>
@@ -169,21 +73,87 @@
 <section id="sobre">
   <h2>Sobre a Equipa</h2>
   <div class="card">
-    <p>Fundada em 2026, a DRS F1 Team nasce com uma missão clara: dominar as ligas online de Fórmula 1 com precisão, estratégia e velocidade.</p>
+    <p>Fundada em 2026, a DRS F1 Team compete em ligas online com foco em performance, estratégia e evolução constante.</p>
   </div>
 </section>
 
 <section id="pilotos">
   <h2>Pilotos</h2>
   <div class="grid">
-    <div class="card">
-      <h3>Piloto 1</h3>
-      <p>Estilo agressivo</p>
+
+<div class="card">
+      <img src="https://via.placeholder.com/300x150">
+      <h3>GunjinPT (CEO DRS F1 Team)</h3>
+      <p class="team">Aston Martin</p>
+      <div class="skill">Pace<div class="bar"><div class="fill" style="width:90%"></div></div></div>
+      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:85%"></div></div></div>
     </div>
-    <div class="card">
-      <h3>Piloto 2</h3>
-      <p>Consistente e estratégico</p>
+
+<div class="card">
+      <img src="https://via.placeholder.com/300x150">
+      <h3>cloudpt1998 (DIR DRS F1 Team)</h3>
+      <p class="team">Ferrari</p>
+      <div class="skill">Pace<div class="bar"><div class="fill" style="width:90%"></div></div></div>
+      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:85%"></div></div></div>
     </div>
+
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x150">
+      <h3>TFTeacher</h3>
+      <p class="team">Visa Cash App RB</p>
+      <div class="skill">Pace<div class="bar"><div class="fill" style="width:90%"></div></div></div>
+      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:85%"></div></div></div>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x150">
+      <h3>joaquimpitmo2</h3>
+      <p class="team">Williams</p>
+      <div class="skill">Pace<div class="bar"><div class="fill" style="width:82%"></div></div></div>
+      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:88%"></div></div></div>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x150">
+      <h3>dijijay22</h3>
+      <p class="team">Red Bull</p>
+      <div class="skill">Pace<div class="bar"><div class="fill" style="width:95%"></div></div></div>
+      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:90%"></div></div></div>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x150">
+      <h3>andr3_gaspar</h3>
+      <p class="team">Mercedes-AMG Petronas</p>
+      <div class="skill">Pace<div class="bar"><div class="fill" style="width:88%"></div></div></div>
+      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:92%"></div></div></div>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x150">
+      <h3>manueads</h3>
+      <p class="team">Alpine</p>
+      <div class="skill">Pace<div class="bar"><div class="fill" style="width:80%"></div></div></div>
+      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:84%"></div></div></div>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x150">
+      <h3>mkultra_6767</h3>
+      <p class="team">Haas</p>
+      <div class="skill">Pace<div class="bar"><div class="fill" style="width:78%"></div></div></div>
+      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:80%"></div></div></div>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x150">
+      <h3>MauroFPP48</h3>
+      <p class="team">McLaren</p>
+      <div class="skill">Pace<div class="bar"><div class="fill" style="width:87%"></div></div></div>
+      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:89%"></div></div></div>
+    </div>
+
   </div>
 </section>
 
